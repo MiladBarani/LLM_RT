@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Claude RTL",
+  "version": "2.4.0",
+  "description": "اصلاح خودکار جهت متن فارسی/انگلیسی در همه‌ی سایت‌ها (کلاد، NotebookLM، ChatGPT و ...) با پشتیبانی iframe و Shadow DOM، و کلید کلی و مخصوص هر سایت.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["storage", "activeTab"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Claude RTL",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ]
+}

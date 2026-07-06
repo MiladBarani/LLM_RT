@@ -1,0 +1,32 @@
+/* بلاک‌های فارسیِ اصلاح‌شده راست‌چین شوند */
+.cbf-rtl {
+  text-align: right;
+}
+
+/* کد inline چپ‌به‌راست و ایزوله بماند */
+.cbf-rtl code,
+.cbf-rtl kbd,
+.cbf-rtl samp {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* بلاک کد کامل همیشه چپ‌به‌راست و چپ‌چین */
+.cbf-rtl pre {
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: isolate;
+}
+
+/* فرمول‌های ریاضی (KaTeX) چپ‌به‌راست بمانند */
+.cbf-rtl .katex,
+.cbf-rtl .katex-html {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* کادرهای تایپ: جهتِ هر خط بر اساس محتوای خودش */
+html.cbf-on textarea,
+html.cbf-on [contenteditable="true"] {
+  unicode-bidi: plaintext;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      :root {
+        --coral: #d97757;
+        --bg: #ffffff;
+        --text: #1f1d1a;
+        --muted: #8a847c;
+        --track: #d8d3cc;
+        --border: #ece8e2;
+      }
+      * {
+        box-sizing: border-box;
+        font-family: "Vazirmatn", "Segoe UI", Tahoma, sans-serif;
+      }
+      body {
+        margin: 0;
+        width: 280px;
+        background: var(--bg);
+        color: var(--text);
+      }
+      .card { padding: 16px; }
+      .header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+      .logo {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: var(--coral);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .titles .title { font-size: 15px; font-weight: 700; line-height: 1.2; }
+      .titles .subtitle { font-size: 12px; color: var(--muted); margin-top: 2px; }
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 11px 12px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-bottom: 8px;
+      }
+      .rlabel { display: flex; flex-direction: column; gap: 2px; }
+      .label { font-size: 14px; font-weight: 600; }
+      .hint { font-size: 11px; color: var(--muted); direction: ltr; text-align: right; }
+      .switch { position: relative; display: inline-block; width: 46px; height: 26px; flex: none; }
+      .switch input { opacity: 0; width: 0; height: 0; }
+      .slider {
+        position: absolute; inset: 0; cursor: pointer;
+        background: var(--track); border-radius: 999px; transition: 0.2s;
+      }
+      .slider::before {
+        content: ""; position: absolute; height: 20px; width: 20px;
+        right: 3px; top: 3px; background: #fff; border-radius: 50%;
+        transition: 0.2s; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+      }
+      input:checked + .slider { background: var(--coral); }
+      input:checked + .slider::before { transform: translateX(-20px); }
+      input:disabled + .slider { opacity: 0.45; cursor: default; }
+      .status {
+        margin-top: 8px; font-size: 12px; color: var(--muted); text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="header">
+        <div class="logo">←</div>
+        <div class="titles">
+          <div class="title">Claude RTL</div>
+          <div class="subtitle">اصلاح متن فارسی در همه‌ی سایت‌ها</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="rlabel">
+          <span class="label">روشن در همه‌جا</span>
+          <span class="hint">کلید اصلی افزونه</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="master" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="row">
+        <div class="rlabel">
+          <span class="label">روشن در این سایت</span>
+          <span class="hint" id="host">—</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="site" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="status" id="status"></div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
